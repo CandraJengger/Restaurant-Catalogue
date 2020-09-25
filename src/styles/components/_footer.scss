@@ -1,0 +1,14 @@
+footer {
+    width: 100%;
+    
+    footer-comp {
+        width: 100%;
+        height: 14vh;
+        line-height: 14vh;
+        background-color: $secondary-color;
+        color: $primary-color;
+        display: block;
+        text-align: center;
+        font-size: $font-sm;
+    }
+}

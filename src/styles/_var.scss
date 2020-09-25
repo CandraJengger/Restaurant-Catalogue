@@ -1,0 +1,29 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url("/fonts/montserratalternates-regular-webfont.woff") format("woff"),
+         url("//fonts/montserratalternates-regular-webfont.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+$primary-color: #ffffff;
+$secondary-color: #8B612D;
+$black: #000;
+$gray: #5c5c5c;
+$red-button: #FB515D;
+$red-button-hover: #f1434f;
+$crem-button: #F9D56E;
+
+
+
+// font
+$font-sm: 0.9em;
+
+
