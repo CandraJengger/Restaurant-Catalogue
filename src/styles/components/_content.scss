@@ -37,20 +37,21 @@ main {
         width: 100%;
     }
 
-    .layer {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 111111;
-        background-color: rgba(0, 0, 0, 0.658);
-        display: none;
-    }
+}
 
-    .layer.open-layer {
-        display: block;
-    }
+.layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 111111;
+    background-color: rgba(0, 0, 0, 0.658);
+    display: none;
+}
+
+.layer.open-layer {
+    display: block;
 }
 
 @media screen and (min-width: 367px) {
