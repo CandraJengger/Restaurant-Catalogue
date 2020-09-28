@@ -8,8 +8,9 @@ import '../scripts/views/templates/FooterComp'
 import App from './views/app'
 
 const app = new App({
-  button: document.getElementById('btn-tab-sidebar'),
-  drawer: document.getElementById('navbar'),
+  btnSidebar: document.querySelector('#btn-tab-sidebar'),
+  btnSkip: document.querySelector('.btn-skip'),
+  drawer: document.querySelector('#navbar'),
   content: document.querySelector('main'),
   layer: document.querySelector('.layer')
 })
