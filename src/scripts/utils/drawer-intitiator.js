@@ -1,8 +1,17 @@
 const DrawerIntitiator = {
-  init ({ button, drawer, content, layer }) {
-    button.addEventListener('click', event => {
+  init ({ btnSidebar, btnSkip, drawer, content, layer }) {
+    btnSidebar.addEventListener('click', event => {
       this._toggleDrawer(event, drawer)
       this._toggleLayer(event, layer)
+    })
+
+    btnSkip.addEventListener('focusin', event => {
+      this._closeDrawer(null, drawer)
+      this._addLayer(event, layer)
+    })
+
+    btnSkip.addEventListener('focusout', event => {
+      this._closeLayer(event, layer)
     })
 
     content.addEventListener('click', event => {
@@ -14,6 +23,11 @@ const DrawerIntitiator = {
       this._closeDrawer(event, drawer)
       this._closeLayer(event, layer)
     })
+
+    content.addEventListener('focusin', event => {
+      this._closeDrawer(event, drawer)
+      this._closeLayer(event, layer)
+    })
   },
 
   _toggleDrawer (event, drawer) {
@@ -22,13 +36,20 @@ const DrawerIntitiator = {
   },
 
   _closeDrawer (event, drawer) {
-    event.stopPropagation()
+    if (event !== null) {
+      event.stopPropagation()
+    }
     drawer.classList.remove('open')
   },
 
   _toggleLayer (event, layer) {
     event.stopPropagation()
     layer.classList.toggle('open-layer')
+  },
+
+  _addLayer (event, layer) {
+    event.stopPropagation()
+    layer.classList.add('open-layer')
   },
 
   _closeLayer (event, layer) {
