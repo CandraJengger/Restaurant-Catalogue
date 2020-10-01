@@ -1,8 +1,18 @@
 const DrawerIntitiator = {
-  init ({ btnSidebar, btnSkip, drawer, content, layer }) {
+  init ({ btnSidebar, btnSkip, drawer, content, layer, links }) {
     btnSidebar.addEventListener('click', event => {
       this._toggleDrawer(event, drawer)
       this._toggleLayer(event, layer)
+    })
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > (window.innerHeight * 0.3)) {
+        btnSidebar.style.backgroundColor = '#8B612D'
+      } 
+      
+      if (window.scrollY < (window.innerHeight * 0.3)) {
+        btnSidebar.style.backgroundColor = 'transparent'
+      }
     })
 
     btnSkip.addEventListener('focusin', event => {
@@ -27,6 +37,23 @@ const DrawerIntitiator = {
     content.addEventListener('focusin', event => {
       this._closeDrawer(event, drawer)
       this._closeLayer(event, layer)
+    })
+
+    links.forEach(link => {
+      link.addEventListener('focusin', event => {
+        this._addActive(event, event.path[1])
+      })
+
+      link.addEventListener('focusout', event => {
+        this._removeActive(event, event.path[1])
+      })
+
+      link.addEventListener('click', event => {
+        links.forEach(link => {
+          this._removeActive(event, link.parentElement)
+        })
+        this._addActive(event, event.path[1])
+      })
     })
   },
 
@@ -55,6 +82,16 @@ const DrawerIntitiator = {
   _closeLayer (event, layer) {
     event.stopPropagation()
     layer.classList.remove('open-layer')
+  },
+
+  _addActive (event, link) {
+    event.stopPropagation()
+    link.classList.add('active')
+  },
+
+  _removeActive (event, link) {
+    event.stopPropagation()
+    link.classList.remove('active')
   }
 }
 
