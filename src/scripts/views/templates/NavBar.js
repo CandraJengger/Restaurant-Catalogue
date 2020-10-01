@@ -3,14 +3,14 @@ class NavBar extends HTMLElement {
     this.render()
   }
 
-  render() {
+  render () {
     this.innerHTML = `
       <nav id="navbar">
         <img src="./images/icons/meluwe-icon-sm.svg" alt="meluwe brand logo" tabindex="0" />
         <img src="./images/icons/meluwe.svg" alt="meluwe brand logo" tabindex="0" />
         <ul class="nav-links">
           <li class="active"><a href="#/home">Home</a></li>
-          <li><a href="#">Favorite</a></li>
+          <li><a href="#/favorite">Favorite</a></li>
           <li><a href="https://www.instagram.com/aldycandra_/">About Us</a></li>
         </ul>
       </nav>
