@@ -5,14 +5,8 @@ const DrawerIntitiator = {
       this._toggleLayer(event, layer)
     })
 
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > (window.innerHeight * 0.3)) {
-        btnSidebar.style.backgroundColor = '#8B612D'
-      } 
-      
-      if (window.scrollY < (window.innerHeight * 0.3)) {
-        btnSidebar.style.backgroundColor = 'transparent'
-      }
+    btnSkip.addEventListener('click', () => {
+      window.location.href = '#content'
     })
 
     btnSkip.addEventListener('focusin', event => {
@@ -41,15 +35,17 @@ const DrawerIntitiator = {
 
     links.forEach(link => {
       link.addEventListener('focusin', event => {
-        this._addActive(event, event.path[1])
+        this._addActiveFocus(event, event.path[1])
       })
 
       link.addEventListener('focusout', event => {
-        this._removeActive(event, event.path[1])
+        this._removeActiveFocus(event, event.path[1])
       })
 
       link.addEventListener('click', event => {
         links.forEach(link => {
+          this._closeDrawer(event, drawer)
+          this._closeLayer(event, layer)
           this._removeActive(event, link.parentElement)
         })
         this._addActive(event, event.path[1])
@@ -92,6 +88,16 @@ const DrawerIntitiator = {
   _removeActive (event, link) {
     event.stopPropagation()
     link.classList.remove('active')
+  },
+
+  _addActiveFocus (event, link) {
+    event.stopPropagation()
+    link.classList.add('active-focus')
+  },
+
+  _removeActiveFocus (event, link) {
+    event.stopPropagation()
+    link.classList.remove('active-focus')
   }
 }
 
