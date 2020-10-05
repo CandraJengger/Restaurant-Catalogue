@@ -1,3 +1,4 @@
+import TheRestaurantDbSource from '../../data/TheRestaurantDbSource'
 import '../templates/HeroContent'
 import '../templates/MainContent'
 
@@ -10,7 +11,13 @@ const Home = {
   },
 
   async afterRender () {
-    // TODO getData
+    try {
+      const listRestaurant = document.querySelector('list-comp')
+      const restaurant = await TheRestaurantDbSource.listOfRestaurant()
+      listRestaurant.restaurantData = await restaurant
+    } catch (error) {
+      console.error(error)
+    }
   }
 } 
 
