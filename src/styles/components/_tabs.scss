@@ -1,0 +1,133 @@
+.tabs {
+  width: 100%;
+  height: 10vh;
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  background-color: $primary-color;
+  align-items: center;
+
+    .tab {
+        width: 100%;
+        height: max-content;
+        text-align: center;
+        font-size: $font-sm;
+        cursor: pointer;
+        color: $gray;
+        padding: 1em .5em;
+        border-bottom: .5px solid #e0e0e0;
+    }
+
+}
+
+.tab-view {
+    width: 100%;
+    height: 100%;
+    display: none;
+    padding: 1em;
+    padding-right: 1.5em;
+    padding-left: 1.5em;
+    font-size: .8em;
+    color: $gray;
+    overflow: auto;
+    word-spacing: 1px;
+    line-height: 17px;
+    background-color: $primary-color;
+
+    
+
+}
+
+.tab-view#menu {
+    display: none;
+    justify-content: space-around;
+
+    .menu-foods, .menu-drinks {
+        h4 {
+            font-weight: bold;
+            color: #8B612D;
+            font-size: 1.1em ;
+        }
+
+        ul {
+            padding-left: 1.3em;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+    }
+}
+
+.tab-view#reviews {
+    ul {
+        list-style: none;
+        /* width */
+        
+        li.review {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1em;
+            border-bottom: .5px solid #e0e0e0;
+            padding-bottom: 10px;
+
+            .comment-wrapper {
+                flex: 2;
+
+                h4 {
+                    font-size: 1.1em;
+                }
+    
+                .comment-review {
+                    display: flex;
+                    padding-top: 10px;
+    
+                    i { color: $secondary-color; }
+    
+                    h5 { padding-left: 8px; }
+                }
+            }
+
+            .date {
+                flex: 1;
+                text-align: right;
+            }
+        }
+    }
+}
+
+.active-tab {
+    font-weight: bold;
+    color: $black !important;
+    background-color: yellow !important;
+    padding-bottom: .7em !important;
+    &::after {
+        content: '';
+        height: 3px;
+        border-radius: 5px;
+        display: block;
+        margin: auto;
+        margin-top: 6px;
+        width: 20%;
+        color: $gray;
+        background-color: black;
+    }
+}
+
+.active-tab-view {
+    display: block;
+}
+
+.active-tab-view#menu {
+    display: flex;
+}
+
+@media screen and (min-width: 660px) {
+    .tab-view {
+        padding-left: 3em !important;
+        padding-right: 3em !important;
+    }
+
+    .tabs {
+        margin: auto;
+        width: 80% !important;
+    }
+}

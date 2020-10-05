@@ -139,7 +139,7 @@ nav {
     }
 }
 
-.active {
+.active, .active-focus {
     background-color: $secondary-color !important;
 
     a {
