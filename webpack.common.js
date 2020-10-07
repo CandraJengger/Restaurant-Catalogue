@@ -3,6 +3,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const WebpackPwaManifest = require('webpack-pwa-manifest')
 const path = require('path')
 
 module.exports = {
@@ -73,6 +74,34 @@ module.exports = {
         {
           from: path.resolve(__dirname, 'src/public/'),
           to: path.resolve(__dirname, 'dist/')
+        }
+      ]
+    }),
+    new WebpackPwaManifest({
+      name: 'Meluwe Restaurant Catalogue',
+      short_name: 'meluwe',
+      description: 'Free Catalogue Restaurant for you',
+      start_url: '/',
+      orientation: 'portrait',
+      display: 'standalone',
+      background_color: '#ffffff',
+      theme_color: '#8B612D',
+      crossorigin: 'use-credentials',
+      ios: true,
+      fingerprints: false,
+      inject: true,
+      icons: [
+        {
+          src: path.resolve('src/public/images/icons/icon-sm.png'),
+          sizes: [96, 128, 192, 256, 384, 512],
+          destination: path.join('images', 'icons'),
+          ios: true
+          
+        },
+        {
+          src: path.resolve('src/public/images/icons/icon-large.png'),
+          destination: path.join('images', 'icons'),
+          size: '1024x1024'
         }
       ]
     })
