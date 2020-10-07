@@ -14,37 +14,37 @@ class TabsComp extends HTMLElement {
     this.innerHTML = `
         <div class="tabs-links">
           <ul class="tabs">
-            <li class="tab">Information</li>
-            <li class="tab active-tab">Menu</li>
-            <li class="tab">Reviews</li>
+            <li class="tab" tabindex="0" aria-label="Show Information">Information</li>
+            <li class="tab active-tab" tabindex="0" aria-label="Show Menu">Menu</li>
+            <li class="tab" tabindex="0" aria-label="Show Reviews">Reviews</li>
           </ul>
         </div>
-        <div id="information" class="tab-view ">
+        <p id="information" class="tab-view">
           &nbsp;&nbsp;${this._restaurantData.description}
-        </div>
-        <div id="menu" class="tab-view active-tab-view">
+        </p>
+        <div id="menu" class="tab-view active-tab-view" aria-label="list of food and drink">
           <div class="menu-foods">
-            <h4>Foods</h4>
+            <h4 tabindex="0">Foods</h4>
             <ul>
               ${
-                this._restaurantData.menus.foods.map(food => `<li>${food.name}</li>`).join(' ')
+                this._restaurantData.menus.foods.map(food => `<li tabindex="0" aria-label="${food.name}">${food.name}</li>`).join(' ')
               }
             </ul>
           </div>
           <div class="menu-drinks">
-            <h4>Drinks</h4>
+            <h4 tabindex="0">Drinks</h4>
             <ul>
               ${
-                this._restaurantData.menus.drinks.map(drink => `<li>${drink.name}</li>`).join(' ')
+                this._restaurantData.menus.drinks.map(drink => `<li tabindex="0" aria-label="${drink.name}">${drink.name}</li>`).join(' ')
               }
             </ul>
           </div>
         </div>
-        <div id="reviews" class="tab-view">
+        <div id="reviews" class="tab-view" aria-label="review list">
           <ul>
             ${
               this._restaurantData.consumerReviews.map(consumerReview => `
-                <li class="review">
+                <li class="review" tabindex="0" aria-label="${consumerReview.name} said, ${consumerReview.review}">
                   <div class="comment-wrapper">
                     <h4>${consumerReview.name}</h4>
                     <div class="comment-review">
