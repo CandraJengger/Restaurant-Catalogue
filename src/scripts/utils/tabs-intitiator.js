@@ -11,8 +11,28 @@ const TabsIntitiator = {
           this._remoceActiveTabView(tabView)
           if (tabView.getAttribute('id') === event.target.textContent.toLowerCase()) {
             this._addActiveTabView(tabView)
+            tabView.setAttribute('tabindex', '0')
+            tabView.focus()
           }
         })
+      })
+
+      tab.addEventListener('keypress', event => {
+        if (event.keyCode === 13) {
+          tabLinks.forEach(tab => {
+            this._removeActiveTab(tab)
+          })
+          this._addActiveTab(event.target)
+          
+          tabViews.forEach(tabView => {
+            this._remoceActiveTabView(tabView)
+            if (tabView.getAttribute('id') === event.target.textContent.toLowerCase()) {
+              this._addActiveTabView(tabView)
+              tabView.setAttribute('tabindex', '0')
+              tabView.focus()
+            }
+          })
+        }
       })
     })
   },

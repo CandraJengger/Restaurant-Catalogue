@@ -1,5 +1,5 @@
 const DrawerIntitiator = {
-  init ({ btnSidebar, btnSkip, drawer, content, layer, links }) {
+  init ({ btnSidebar, btnSkip, drawer, content, layer, links, url }) {
     btnSidebar.addEventListener('click', event => {
       this._toggleDrawer(event, drawer)
       this._toggleLayer(event, layer)
