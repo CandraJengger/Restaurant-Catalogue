@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const WebpackPwaManifest = require('webpack-pwa-manifest')
+const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin')
 const path = require('path')
 
 module.exports = {
@@ -104,6 +105,9 @@ module.exports = {
           size: '1024x1024'
         }
       ]
+    }),
+    new ServiceWorkerWebpackPlugin({
+      entry: path.resolve(__dirname, 'src/scripts/sw.js')
     })
   ]
 }
