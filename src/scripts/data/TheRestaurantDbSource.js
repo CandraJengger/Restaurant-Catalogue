@@ -12,6 +12,11 @@ const TheRestaurantDbSource = {
     return result.restaurant
   },
 
+  async searchRestaurant (query) {
+    const result = await this._fetchAPI(API_ENDPOINT.SEARCH_RESTAURANT(query))
+    return result.restaurants
+  },
+
   async _fetchAPI (apiEndpoint) {
     const response = await fetch(apiEndpoint)
     const responseJson = await response.json()
