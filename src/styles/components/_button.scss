@@ -37,7 +37,7 @@
  }
 
 
-#btn-tab-sidebar {
+.btn-tab-sidebar {
     display: inline-block;
     position: fixed;
     top: 10px;
@@ -58,6 +58,30 @@
     }
 }
 
+.btn-favorite {
+    font-size: 18px;
+    position: fixed;
+    bottom: 20px;
+    right: 18px;
+    background-color: $red-button;
+    color: white;
+    border: 0;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:hover {
+        background-color: $red-button-hover;
+    }
+
+    &:focus {
+        background-color: $red-button-hover;
+    }
+}
+
 // medium
 @media screen and (min-width: 660px) {
     @for $i from 1 through 9 {
@@ -72,7 +96,7 @@
 
 // large
 @media screen and (min-width: 1024px) {
-    #btn-tab-sidebar {
+    .btn-tab-sidebar {
         display: none;
     }
 }
