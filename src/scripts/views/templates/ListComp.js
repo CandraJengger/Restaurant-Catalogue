@@ -2,10 +2,14 @@ import ListCompItem from './ListCompItem'
 import CardIntitiator from '../../utils/card-intitiator'
 
 class ListComp extends HTMLElement {
+  connectedCallback () {
+    this.render()
+  }
+
   // set data restaurant
   set restaurantData (data) {
     this._restaurantData = data
-    this.render()
+    this.renderList()
   }
 
   get restaurantData () {
@@ -13,12 +17,18 @@ class ListComp extends HTMLElement {
   }
 
   render () {
+    this.innerHTML = '<ul id="list-component"></ul>'
+  }
+
+  renderList () {
     this.numberButton = 0
     this.numberCard = 0
-    this.innerHTML = `
-      <ul id="list-component">
+    this._listWrapper = document.querySelector('#list-component')
+    this._listRestaurant = ''
+
+    this._listRestaurant += `
       ${
-        this.innerHTML += this._restaurantData.map(data => {
+        this._restaurantData.map(data => {
           this.numberCard += 1
           this.numberButton += 1
           return ListCompItem({ 
@@ -26,11 +36,11 @@ class ListComp extends HTMLElement {
             numberCard: this.numberCard,
             numberButton: this.numberButton
           })
-      }).join('')
-    }
-      </ul>
+        }).join('')
+      }
     `
-
+    this._listWrapper.innerHTML = this._listRestaurant
+    
     CardIntitiator.init({
       btnDetails: document.querySelectorAll('button[id^="btn-detail"]'),
       cards: document.querySelectorAll('list-comp ul#list-component li.card')
