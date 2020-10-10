@@ -8,13 +8,20 @@
 <body> 
   <button-comp className="btn-skip">Skip to content</button-comp>
   <header>
-    <button id="btn-tab-sidebar" aria-label="Button Tab Menu">
-      <img src="./images/icons/Icon open-align-left.svg" alt="icon menu">
-    </button>
+    <button-icon 
+      idComp="btnTabSidebar"
+      className="btn-tab-sidebar"
+      ariaLabel="Button Tab Menu"
+      type="images"
+      content="./images/icons/Icon open-align-left.svg"
+      alt="icon menu"
+    ></button-icon>
     <nav-bar/>
   </header>
   <main id="mainContent"></main>
   <span class="layer"></span>
+  <spinner-comp></spinner-comp>
+  <error-comp></error-comp>
   <footer>
     <footer-comp tabindex="0"></footer-comp>
   </footer>
