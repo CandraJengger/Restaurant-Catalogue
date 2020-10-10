@@ -20,6 +20,28 @@ const Home = {
       const listRestaurant = document.querySelector('list-comp')
       const restaurant = await TheRestaurantDbSource.listOfRestaurant()
       listRestaurant.restaurantData = await restaurant
+
+      const searchRestaurant = document.querySelector('.search-wrapper input[type=search]')
+      searchRestaurant.addEventListener('keyup', async event => {
+        try {
+          const searchResult = await TheRestaurantDbSource.searchRestaurant(event.target.value)
+          if (event.target.value.length > 0 && searchResult.length === 0) {
+            throw Error()
+          }
+
+          if (event.target.value === '') {
+            listRestaurant.restaurantData = await restaurant 
+          }
+
+          listRestaurant.restaurantData = await searchResult
+        } catch (error) {
+          listRestaurant.children[0].innerHTML = `
+            <div class="error-search">
+              <h2>place not found</h2>
+            </div>
+          `
+        }
+      })
     } catch (error) {
       console.error(error)
       PreloaderIntitiator.showError({

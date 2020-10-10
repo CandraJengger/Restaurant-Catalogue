@@ -1,5 +1,6 @@
 import UrlParser from '../../routes/url-parser'
 import TheRestaurantDbSource from '../../data/TheRestaurantDbSource'
+import FavoriteButtonIntitiator from '../../utils/favorite-button-intitiator'
 import CONFIG from '../../globals/config'
 import PreloaderIntitiator from '../../utils/preloader-intitiator'
 import '../templates/TabsComp'
@@ -31,9 +32,10 @@ const Detail = {
     try {
       PreloaderIntitiator.showLoading(spinnerComp)
 
+      // request API
       const url = UrlParser.parseActiveUrlWithoutCombiner()
       const restaurant = await TheRestaurantDbSource.detailRestaurant(url.id)
-
+      console.log(restaurant)
       const cardComp = document.querySelector('card-comp')
       const tabsCmp = document.querySelector('tabs-comp')
       const imageDetail = document.querySelector('.detail-img-wrapper img')
@@ -46,6 +48,13 @@ const Detail = {
         imageDetail.src = 'https://picsum.photos/id/666/800/450?grayscale'
       }
       imageDetail.alt = restaurant.name
+
+      // Button favorite
+      const favoriteButtonContainer = document.querySelector('#favoriteButtonContainer')
+      FavoriteButtonIntitiator.init({
+        favoriteButtonContainer,
+        restaurant
+      })
     } catch (error) {
       console.error(error)
       PreloaderIntitiator.showError({
