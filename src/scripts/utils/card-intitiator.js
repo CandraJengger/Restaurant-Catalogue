@@ -1,5 +1,5 @@
 const CardIntitiator = {
-  init ({ cards, btnDetails, id }) {
+  init ({ cards, btnDetails }) {
     if (window.innerWidth >= 660 && cards !== 0) {
       cards.forEach(card => {
         card.children[0].addEventListener('mouseenter', event => this._handleEventIn(event.target))
