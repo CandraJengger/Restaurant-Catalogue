@@ -1,5 +1,5 @@
-import './HeroContent.js'
-import './ListComp.js'
+import './HeroContent'
+import './ListComp'
 import './SearchComp'
 
 class MainContent extends HTMLElement {
