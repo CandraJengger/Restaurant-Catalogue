@@ -23,22 +23,28 @@ class TabsComp extends HTMLElement {
           &nbsp;&nbsp;${this._restaurantData.description}
         </p>
         <div id="menu" class="tab-view active-tab-view" aria-label="list of food and drink">
-          <div class="menu-foods">
-            <h4 tabindex="0">Foods</h4>
-            <ul>
-              ${
-                this._restaurantData.menus.foods.map(food => `<li tabindex="0" aria-label="${food.name}">${food.name}</li>`).join(' ')
-              }
-            </ul>
+          <div class="categories">
+            <h4>Category</h4>
+            <p>${this._restaurantData.categories.map(category => category.name).join(', ')}</p>
           </div>
-          <div class="menu-drinks">
-            <h4 tabindex="0">Drinks</h4>
-            <ul>
-              ${
-                this._restaurantData.menus.drinks.map(drink => `<li tabindex="0" aria-label="${drink.name}">${drink.name}</li>`).join(' ')
-              }
-            </ul>
-          </div>
+          <div class="menus">
+            <div class="menu-foods">
+              <h4 tabindex="0">Foods</h4>
+              <ul>
+                ${
+                  this._restaurantData.menus.foods.map(food => `<li tabindex="0" aria-label="${food.name}">${food.name}</li>`).join(' ')
+                }
+              </ul>
+            </div>
+            <div class="menu-drinks">
+              <h4 tabindex="0">Drinks</h4>
+              <ul>
+                ${
+                  this._restaurantData.menus.drinks.map(drink => `<li tabindex="0" aria-label="${drink.name}">${drink.name}</li>`).join(' ')
+                }
+              </ul>
+            </div>
+          </div> 
         </div>
         <div id="reviews" class="tab-view" aria-label="review list">
           <ul>
