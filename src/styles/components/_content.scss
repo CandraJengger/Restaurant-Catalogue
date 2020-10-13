@@ -40,6 +40,19 @@ main {
 
 }
 
+#favorite-content {
+    width: 100%;
+    min-height: 90vh;
+
+    h1 {
+        width: 50%;
+        margin: 10vh auto 5vh;
+        font-size: 1.4em;
+        text-align: center;
+
+    }
+}
+
 .layer {
     position: fixed;
     top: 0;
@@ -125,6 +138,12 @@ main {
         width: 100%;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    #favorite-content {
+        h1 {
+            margin-top: 15vh !important;
+        }
     }
 }
 
