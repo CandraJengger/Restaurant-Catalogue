@@ -5,8 +5,8 @@ import '../templates/ListComp'
 const Favorite = {
   async render () {
     return `
-      <div id="content">
-        <h2>Your Favorite Restaurant</h2>
+      <div id="favorite-content">
+        <h1>Favorite Restaurant</h1>
         <list-comp></list-comp>
       </div>
     `
