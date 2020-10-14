@@ -7,6 +7,7 @@ import '../scripts/views/templates/FooterComp'
 import '../scripts/views/templates/SpinnerComp'
 import '../scripts/views/templates/ErrorComp'
 import '../scripts/views/templates/ButtonIconComp'
+import '../scripts/views/templates/ToastComp'
 import App from './views/app'
 import swRegister from '../scripts/utils/sw-register'
 
