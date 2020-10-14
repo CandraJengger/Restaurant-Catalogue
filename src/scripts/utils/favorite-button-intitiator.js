@@ -1,4 +1,5 @@
 import FavoriteRestaurantIdb from '../data/favorite-restaurant-idb'
+import ToastIntitiator from './toast-intitiator'
 
 const FavoriteButtonIntitiator = {
   async init ({ favoriteButtonContainer, restaurant }) {
@@ -38,6 +39,11 @@ const FavoriteButtonIntitiator = {
     favoriteButton.addEventListener('click', async () => {
       await FavoriteRestaurantIdb.putRestaurant(this._restaurant)
       this._renderButton()
+      ToastIntitiator.init({
+        toastContainer: document.querySelector('#toastContainer'),
+        html: 'You added this restaurant to your favorites',
+        duration: 1000
+      })
     })
   },
 
@@ -56,6 +62,11 @@ const FavoriteButtonIntitiator = {
     favoritedButton.addEventListener('click', async () => {
       await FavoriteRestaurantIdb.deleteMovie(this._restaurant.id)
       this._renderButton()
+      ToastIntitiator.init({
+        toastContainer: document.querySelector('#toastContainer'),
+        html: 'You deleted this restaurant from your favorites',
+        duration: 1000
+      })
     })
   }
 }
