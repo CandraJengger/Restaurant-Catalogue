@@ -13,7 +13,7 @@ class SearchComp extends HTMLElement {
           type="search" 
           name="q" 
           placeholder="find by place or category" 
-          autocomplete="on"
+          autocomplete="off"
           aria-label="Find a place"
         >
       </div>
