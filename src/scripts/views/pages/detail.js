@@ -23,6 +23,7 @@ const Detail = {
         </div>
       </div>
       <div id="favoriteButtonContainer"></div>
+      <div id="toastContainer"></div>
     `
   },
 
