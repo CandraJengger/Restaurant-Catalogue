@@ -1,5 +1,7 @@
+import TheRestaurantDbSource from '../data/TheRestaurantDbSource'
+
 const FormCommentIntitiator = {
-  init ({ container, form, inputName, inputReview, button, list }) {
+  init ({ container, form, inputName, inputReview, button, list, urlId }) {
     this._monthList = [
       'Januari',
       'Februari',
@@ -20,6 +22,7 @@ const FormCommentIntitiator = {
     this._form = form
     this._button = button
     this._list = list
+    this._urlId = urlId
 
     this._inputReview.addEventListener('focus', () => {
       this._showInput(this._inputName)
@@ -43,6 +46,14 @@ const FormCommentIntitiator = {
           year: new Date().getFullYear()
         })
       })
+
+      const newReview = {
+        id: this._urlId,
+        name: this._inputName.value,
+        review: this._inputReview.value
+      }
+
+      TheRestaurantDbSource.postReview(newReview)
     })
   },
 
