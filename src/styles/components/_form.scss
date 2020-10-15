@@ -1,0 +1,39 @@
+.form-reviews {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: $primary-color;
+    margin-bottom: 10px;
+
+    .form-content {
+        flex: 3.2;
+        display: flex;
+        flex-direction: column;
+
+        input {
+          width: 100%;
+          font-size: 1em;
+          padding: 5px 10px;
+          padding-left: 15px;
+          height: 44px;
+          line-height: 44px;
+          border: none;
+          outline: none;
+          background: #e6e4e4;
+          margin-bottom: 5px;
+          border-radius: 8px;
+        }
+
+        input#namePerson {
+          display: none;
+        }
+
+    }
+
+    .form-button {
+      flex: .8;
+      position: relative;
+    } 
+}
