@@ -22,9 +22,8 @@ const Favorite = {
       const restaurant = await FavoriteRestaurantIdb.getAllRestaurant()
       listRestaurant.restaurantData = await restaurant
     } catch (error) {
-      console.error(error)
       PreloaderIntitiator.showError({
-        errorMsg: error,
+        errorMsg: 'Ups.. Something went wrong',
         errorWrapper: errorComp
       })
     } finally {

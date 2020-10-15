@@ -37,7 +37,7 @@ const Detail = {
       // request API
       const url = UrlParser.parseActiveUrlWithoutCombiner()
       const restaurant = await TheRestaurantDbSource.detailRestaurant(url.id)
-      console.log(restaurant)
+      console.log(url)
       const cardComp = document.querySelector('card-comp')
       const tabsCmp = document.querySelector('tabs-comp')
       const imageDetail = document.querySelector('.detail-img-wrapper img')
@@ -65,12 +65,13 @@ const Detail = {
         inputName: document.getElementById('namePerson'),
         inputReview: document.getElementById('comment'),
         button: document.getElementById('postButton'),
-        list: document.querySelector('#reviews ul')
+        list: document.querySelector('#reviews ul'),
+        urlId: url.id
       })
     } catch (error) {
       console.error(error)
       PreloaderIntitiator.showError({
-        errorMsg: error,
+        errorMsg: 'Ups.. Something went wrong',
         errorWrapper: errorComp
       })
     } finally {

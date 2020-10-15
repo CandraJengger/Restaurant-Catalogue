@@ -43,9 +43,8 @@ const Home = {
         }
       })
     } catch (error) {
-      console.error(error)
       PreloaderIntitiator.showError({
-        errorMsg: error,
+        errorMsg: 'Ups.. Something went wrong',
         errorWrapper: errorComp
       })
     } finally {
