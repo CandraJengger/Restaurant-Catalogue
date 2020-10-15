@@ -33,9 +33,6 @@
     word-spacing: 1px;
     line-height: 17px;
     background-color: $primary-color;
-
-    
-
 }
 
 .tab-view#menu {
@@ -76,9 +73,13 @@
 }
 
 .tab-view#reviews {
+    overflow: hidden;
+    position: relative;
     ul {
+        overflow: auto;
+        height: 70%;
         list-style: none;
-        /* width */
+        
         
         li.review {
             display: flex;
@@ -110,6 +111,7 @@
             }
         }
     }
+
 }
 
 .active-tab {
