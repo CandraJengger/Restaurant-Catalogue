@@ -6,6 +6,7 @@ class ButtonIconComp extends HTMLElement {
     this.idComp = this.getAttribute('idComp') || ''
     this.alt = this.getAttribute('alt') || ''
     this.ariaLabel = this.getAttribute('ariaLabel') || ''
+    this.role = this.getAttribute('role') || 'button'
     this.render()
   }
 
@@ -15,6 +16,7 @@ class ButtonIconComp extends HTMLElement {
         class="${this.className}"
         id="${this.idComp}"     
         aria-label="${this.ariaLabel}"
+        type="${this.role}"
       >
         ${
           this.type === 'images'
