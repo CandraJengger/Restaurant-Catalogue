@@ -1,4 +1,5 @@
 import API_ENDPOINT from '../globals/api-endpoint'
+import CONFIG from '../globals/config'
 
 const TheRestaurantDbSource = {
 
@@ -21,6 +22,20 @@ const TheRestaurantDbSource = {
     const response = await fetch(apiEndpoint)
     const responseJson = await response.json()
     return responseJson
+  },
+
+  async postReview (review) {
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Auth-Token': CONFIG.KEY
+      },
+      body: JSON.stringify(review)
+    }
+
+    const result = await fetch(API_ENDPOINT.POST_REVIEW, options)
+    return result
   }
 }
 
