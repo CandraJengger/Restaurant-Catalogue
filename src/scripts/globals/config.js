@@ -5,7 +5,8 @@ const CONFIG = {
   CACHE_NAME: new Date().toISOString(),
   DATABASE_NAME: 'meluwe-db',
   DATABASE_VERSION: 1,
-  OBJECT_STORE_NAME: 'movies'
+  OBJECT_STORE_NAME: 'movies',
+  KEY: 12345
 }
 
 export default CONFIG
