@@ -1,4 +1,5 @@
 import TabsIntitiator from '../../utils/tabs-intitiator'
+import './FormComp'
 
 class TabsComp extends HTMLElement {
   set restaurantData (data) {
@@ -63,6 +64,7 @@ class TabsComp extends HTMLElement {
               `).join(' ')
             }
           </ul>
+          <form-comp idComp="formReviews" className="form-reviews"></form-comp>
         </div>
     `
 
