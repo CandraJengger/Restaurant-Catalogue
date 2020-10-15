@@ -82,6 +82,22 @@
     }
 }
 
+.btn-post {
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+    display: flex;
+    font-size: 18px;
+    justify-content: center;
+    align-items: center;
+    color: $secondary-color;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    position: absolute;
+    bottom: 0;
+}
+
 // medium
 @media screen and (min-width: 660px) {
     @for $i from 1 through 9 {
