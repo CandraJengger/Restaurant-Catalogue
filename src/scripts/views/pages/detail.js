@@ -1,6 +1,7 @@
 import UrlParser from '../../routes/url-parser'
 import TheRestaurantDbSource from '../../data/TheRestaurantDbSource'
 import FavoriteButtonIntitiator from '../../utils/favorite-button-intitiator'
+import FormCommentIntitiator from '../../utils/form-comment-intitiator'
 import CONFIG from '../../globals/config'
 import PreloaderIntitiator from '../../utils/preloader-intitiator'
 import '../templates/TabsComp'
@@ -55,6 +56,16 @@ const Detail = {
       FavoriteButtonIntitiator.init({
         favoriteButtonContainer,
         restaurant
+      })
+
+      // Form Comment
+      FormCommentIntitiator.init({
+        container: document.querySelector('.detail-container'),
+        form: document.getElementById('formReviews'),
+        inputName: document.getElementById('namePerson'),
+        inputReview: document.getElementById('comment'),
+        button: document.getElementById('postButton'),
+        list: document.querySelector('#reviews ul')
       })
     } catch (error) {
       console.error(error)
