@@ -50,16 +50,16 @@ class TabsComp extends HTMLElement {
         <div id="reviews" class="tab-view" aria-label="review list">
           <ul>
             ${
-              this._restaurantData.consumerReviews.map(consumerReview => `
-                <li class="review" tabindex="0" aria-label="${consumerReview.name} said, ${consumerReview.review}">
+              this._restaurantData.customerReviews.map(customerReview => `
+                <li class="review" tabindex="0" aria-label="${customerReview.name} said, ${customerReview.review}">
                   <div class="comment-wrapper">
-                    <h4>${consumerReview.name}</h4>
+                    <h4>${customerReview.name}</h4>
                     <div class="comment-review">
                       <i class="fas fa-comment"></i>
-                      <h5>${consumerReview.review}</h5>
+                      <h5>${customerReview.review}</h5>
                     </div>
                   </div>
-                  <p class="date">${consumerReview.date}</p>
+                  <p class="date">${customerReview.date}</p>
                 </li>
               `).join(' ')
             }

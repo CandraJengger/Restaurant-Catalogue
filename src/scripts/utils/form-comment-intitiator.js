@@ -36,6 +36,16 @@ const FormCommentIntitiator = {
 
     this._form.addEventListener('submit', event => {
       event.preventDefault()
+      if (this._inputName.value.length === 0) {
+        this._showInput(this._inputName)
+        this._inputName.focus()
+        return
+      }
+
+      if (this._inputReview.value.length === 0) {
+        this._inputReview.focus()
+        return
+      }
       this._addNewReviewOnList({
         list: this._list,
         name: this._inputName.value,

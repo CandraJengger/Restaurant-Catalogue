@@ -5,14 +5,21 @@ const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const WebpackPwaManifest = require('webpack-pwa-manifest')
 const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin')
+const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default
+const ImageminMozjpeg = require('imagemin-mozjpeg')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+
+// const webpack = require('webpack')
 const path = require('path')
 
 module.exports = {
   entry: path.resolve(__dirname, 'src/scripts/index.js'),
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.[hash:8].js'
+    // sourceMapFilename: '[file].map[query]'
   },
+  devtool: 'source-map',
   module: {
     rules: [
       {
@@ -61,7 +68,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: 'css/[name].css'
+      filename: 'css/[name].[hash:8].css'
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src/templates/index.html'),
@@ -78,6 +85,15 @@ module.exports = {
         }
       ]
     }),
+    new ImageminWebpackPlugin({
+      test: 'dist/images/heros/*.jpg',
+      plugins: [
+        ImageminMozjpeg({
+          quality: 50,
+          progressive: true
+        })
+      ]
+    }),
     new WebpackPwaManifest({
       name: 'Meluwe Restaurant Catalogue',
       short_name: 'meluwe',
@@ -87,27 +103,32 @@ module.exports = {
       display: 'standalone',
       background_color: '#ffffff',
       theme_color: '#8B612D',
-      crossorigin: 'use-credentials',
+      crossorigin: null,
       ios: true,
       fingerprints: false,
       inject: true,
       icons: [
         {
           src: path.resolve('src/public/images/icons/icon-sm.png'),
-          sizes: [96, 128, 192, 256, 384, 512],
+          sizes: [72, 96, 128, 192, 256, 384, 512],
           destination: path.join('images', 'icons'),
-          ios: true
-          
+          ios: true,
+          purpose: 'maskable'
         },
         {
           src: path.resolve('src/public/images/icons/icon-large.png'),
           destination: path.join('images', 'icons'),
-          size: '1024x1024'
+          size: '1024x1024',
+          purpose: 'maskable'
         }
       ]
     }),
     new ServiceWorkerWebpackPlugin({
       entry: path.resolve(__dirname, 'src/scripts/sw.js')
-    })
+    }),
+    // new webpack.SourceMapDevToolPlugin({
+    //   filename: '[file].map'
+    // }),
+    new BundleAnalyzerPlugin()
   ]
 }

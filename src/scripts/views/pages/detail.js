@@ -12,7 +12,7 @@ const Detail = {
     return `
       <div class="detail-container">
         <div class="detail-img-wrapper">
-          <img src="" alt="">
+          <img src="" alt="" crossorigin="anonymous">
         </div>
         <div class="detail-section-wrapper">
           <div class="card-detail-wrapper" id="card-detail-wrapper">
@@ -37,7 +37,7 @@ const Detail = {
       // request API
       const url = UrlParser.parseActiveUrlWithoutCombiner()
       const restaurant = await TheRestaurantDbSource.detailRestaurant(url.id)
-      console.log(url)
+      console.log(restaurant)
       const cardComp = document.querySelector('card-comp')
       const tabsCmp = document.querySelector('tabs-comp')
       const imageDetail = document.querySelector('.detail-img-wrapper img')

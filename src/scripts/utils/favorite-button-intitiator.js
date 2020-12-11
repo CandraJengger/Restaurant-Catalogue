@@ -21,6 +21,7 @@ const FavoriteButtonIntitiator = {
 
   async _isMovieExist (id) {
     const restaurant = await FavoriteRestaurantIdb.getRestaurant(id)
+    console.log(restaurant)
     return !!restaurant
   },
 

@@ -30,7 +30,7 @@ const Home = {
           }
 
           if (event.target.value === '') {
-            listRestaurant.restaurantData = await restaurant 
+            listRestaurant.restaurantData = await TheRestaurantDbSource.listOfRestaurant() 
           }
 
           listRestaurant.restaurantData = await searchResult

@@ -14,7 +14,7 @@
         top: 0;
     }
 }
-@for $i from 1 through 20 { 
+@for $i from 1 through 50 { 
     #btn-detail#{$i} {
         padding: 12px 20px;
         background-color: $red-button;
@@ -100,7 +100,7 @@
 
 // medium
 @media screen and (min-width: 660px) {
-    @for $i from 1 through 9 {
+    @for $i from 1 through 50 {
         #btn-detail#{$i} {
             width: 40%;
             margin-left: 60%;

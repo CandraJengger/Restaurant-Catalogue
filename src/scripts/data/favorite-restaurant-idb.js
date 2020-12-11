@@ -1,3 +1,4 @@
+/* eslint-disable no-prototype-builtins */
 import { openDB } from 'idb'
 import CONFIG from '../globals/config'
 
@@ -17,6 +18,10 @@ const FavoriteRestaurantIdb = {
     return (await dbPromise).getAll(OBJECT_STORE_NAME)
   },
   async putRestaurant (restaurant) {
+    if (!restaurant.hasOwnProperty('id')) {
+
+    }
+
     return (await dbPromise).put(OBJECT_STORE_NAME, restaurant)
   },
   async deleteMovie (id) {

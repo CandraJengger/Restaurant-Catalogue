@@ -8,7 +8,11 @@ module.exports = merge(common, {
       {
         test: /\.js$/,
         exclude: '/node_modules/',
+        enforce: 'pre',
         use: [
+          {
+            loader: 'source-map-loader' 
+          },
           {
             loader: 'babel-loader',
             options: {

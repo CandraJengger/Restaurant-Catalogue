@@ -1,13 +1,20 @@
+import 'lazysizes'
+import 'lazysizes/plugins/parent-fit/ls.parent-fit'
 import CONFIG from '../../globals/config'
 
 const ListCompItem = ({ restaurantData, numberCard, numberButton }) => `
   <li class="card" tabindex="0" aria-label="restaurant card ${numberCard}">
     <div class="card-img">
-      <img src=${
-         restaurantData.pictureId
-        ? CONFIG.BASE_IMAGE_URL_MEDIUM + restaurantData.pictureId 
-        : 'https://picsum.photos/id/666/800/450?grayscale'
-      } alt="${restaurantData.name}">
+      <img 
+        class="lazyload"
+        data-src=${
+          restaurantData.pictureId
+          ? CONFIG.BASE_IMAGE_URL_MEDIUM + restaurantData.pictureId 
+          : 'https://picsum.photos/id/666/800/450?grayscale'
+        } 
+        alt="${restaurantData.name}"
+        crossorigin="anonymous"
+      >
     </div>
     <div class="card-text">
       <h2 tabindex="0" aria-label="name ${restaurantData.name}">${restaurantData.name}</h2>
@@ -22,9 +29,7 @@ const ListCompItem = ({ restaurantData, numberCard, numberButton }) => `
           <p>${restaurantData.city}</p>
         </span>
       </div>
-      <p class="text" tabindex="-1">${ 
-         restaurantData.description.substring(0, window.innerWidth / 4) 
-      }...</p>
+      <p class="text" tabindex="-1">${restaurantData.description}</p>
       <button-comp className="btn-detail${numberButton}" idCard="${restaurantData.id}">Detail</button-comp>
     </div>
   </li>
