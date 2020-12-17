@@ -26,28 +26,24 @@ describe('Unliking A Restaurant', () => {
       }
     })
 
-    setTimeout(() => {
-      console.log(document.getElementById('favoritedButton'))
-    }, 100)
+    console.log(document.getElementById('favoritedButton'))
     
-    setTimeout(async () => {
-      await FavoriteRestaurantIdb.getRestaurant(1)
-      expect(document.querySelector('[aria-label="cancel this restaurant favorite"]'))
-        .toBeTruthy()
-    }, 2000)
+    await FavoriteRestaurantIdb.getRestaurant(1)
+    expect(document.querySelector('[aria-label="cancel this restaurant favorite"]'))
+      .toBeTruthy()
   })
  
-  //   it('should not display favorite widget when the restaurant has been liked', async () => {
-  //     await FavoriteButtonIntitiator.init({
-  //       favoriteButtonContainer: document.getElementById('favoriteButtonContanier'),
-  //       restaurant: {
-  //         id: 1
-  //       }
-  //     })
+  it('should not display favorite widget when the restaurant has been liked', async () => {
+    await FavoriteButtonIntitiator.init({
+      favoriteButtonContainer: document.getElementById('favoriteButtonContanier'),
+      restaurant: {
+        id: 1
+      }
+    })
     
-//     setTimeout(() => {
-//       expect(document.querySelector('[aria-label="make this restaurant a favorite"]'))
-//         .toBeFalsy()
-//     }, 1000)
-//   })
+    setTimeout(() => {
+      expect(document.querySelector('[aria-label="make this restaurant a favorite"]'))
+        .toBeFalsy()
+    }, 1000)
+  })
 })

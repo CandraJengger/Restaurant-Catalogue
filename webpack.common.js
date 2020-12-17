@@ -19,6 +19,11 @@ module.exports = {
     filename: 'bundle.[hash:8].js'
     // sourceMapFilename: '[file].map[query]'
   },
+  optimization: {
+    splitChunks: {
+      chunks: 'all'
+    }
+  },
   devtool: 'source-map',
   module: {
     rules: [
