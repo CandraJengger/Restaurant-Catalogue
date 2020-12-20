@@ -14,7 +14,7 @@ describe('Unliking A Restaurant', () => {
   })
  
   afterEach(async () => {
-    await FavoriteRestaurantIdb.deleteMovie(1)
+    await FavoriteRestaurantIdb.deleteRestaurant(1)
   })
  
   it('should display cancel favorite widget when the restaurant has been favorited', async () => {
