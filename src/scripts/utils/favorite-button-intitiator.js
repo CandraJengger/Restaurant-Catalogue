@@ -61,7 +61,7 @@ const FavoriteButtonIntitiator = {
 
     const favoritedButton = document.querySelector('#favoritedButton')
     favoritedButton.addEventListener('click', async () => {
-      await FavoriteRestaurantIdb.deleteMovie(this._restaurant.id)
+      await FavoriteRestaurantIdb.deleteRestaurant(this._restaurant.id)
       this._renderButton()
       ToastIntitiator.init({
         toastContainer: document.querySelector('#toastContainer'),

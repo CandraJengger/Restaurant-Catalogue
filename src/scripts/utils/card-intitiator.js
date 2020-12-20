@@ -6,8 +6,8 @@ const CardIntitiator = {
         card.children[0].addEventListener('mouseleave', event => this._handleEventOut(event.target))
 
         // focus
-        card.addEventListener('focusin', () => this._handleEventIn(card.children[0]))
-        card.addEventListener('focusout', () => this._handleEventOut(card.children[0]))
+        // card.addEventListener('focusin', () => this._handleEventIn(card.children[0]))
+        // card.addEventListener('focusout', () => this._handleEventOut(card.children[0]))
       })
     }
 
