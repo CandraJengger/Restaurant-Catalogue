@@ -1,22 +1,23 @@
 /* eslint-disable no-undef */
 import FavoriteButtonIntitiator from '../src/scripts/utils/favorite-button-intitiator'
 import FavoriteRestaurantIdb from '../src/scripts/data/favorite-restaurant-idb'
+import '../src/scripts/views/templates/ButtonIconComp'
 
 const addFavoriteButtonContainer = () => {
   document.body.innerHTML = '<div id="favoriteButtonContainer"></div>'
 }
  
 describe('Unliking A Restaurant', () => {
-  // beforeEach(async () => {
-  //   addFavoriteButtonContainer()
-  //   await FavoriteRestaurantIdb.putRestaurant({ id: 1 })
-  // })
+  beforeEach(async () => {
+    addFavoriteButtonContainer()
+    await FavoriteRestaurantIdb.putRestaurant({ id: 1 })
+  })
  
   afterEach(async () => {
     await FavoriteRestaurantIdb.deleteMovie(1)
   })
  
-  fit('should display cancel favorite widget when the restaurant has been favorited', async () => {
+  it('should display cancel favorite widget when the restaurant has been favorited', async () => {
     await FavoriteRestaurantIdb.putRestaurant({ id: 1 })
     document.body.innerHTML = '<div id="favoriteButtonContainer"></div>'
     await FavoriteButtonIntitiator.init({
@@ -35,7 +36,7 @@ describe('Unliking A Restaurant', () => {
  
   it('should not display favorite widget when the restaurant has been liked', async () => {
     await FavoriteButtonIntitiator.init({
-      favoriteButtonContainer: document.getElementById('favoriteButtonContanier'),
+      favoriteButtonContainer: document.getElementById('favoriteButtonContainer'),
       restaurant: {
         id: 1
       }

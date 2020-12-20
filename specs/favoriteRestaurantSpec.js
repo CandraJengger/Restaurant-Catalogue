@@ -54,7 +54,7 @@ describe('Liking a Restaurant', () => {
 
       expect(restaurant).toEqual({ id: 1 })
 
-      FavoriteRestaurantIdb.deleteMovie(1)
+      FavoriteRestaurantIdb.deleteRestaurant(1)
     }, 1000)
   })
 
